@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 50% 10%;
+    --foreground: 0 0% 100%;
+
+    --card: 220 40% 16%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 220 40% 14%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 340 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 80% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 30% 22%;
+    --muted-foreground: 0 0% 85%;
+
+    --accent: 45 100% 60%;
+    --accent-foreground: 220 50% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 30% 28%;
+    --input: 220 30% 22%;
+    --ring: 340 80% 55%;
+
+    --radius: 1rem;
+
+    /* Custom design tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(340, 80%, 55%) 0%, hsl(280, 70%, 50%) 50%, hsl(220, 80%, 50%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(45, 100%, 60%) 0%, hsl(35, 100%, 55%) 100%);
+    --gradient-social: linear-gradient(90deg, hsl(210, 100%, 65%) 0%, hsl(280, 100%, 70%) 100%);
+    --gradient-spin: linear-gradient(90deg, hsl(340, 80%, 55%) 0%, hsl(280, 70%, 50%) 100%);
+    --glass: hsla(220, 40%, 100%, 0.06);
+    --glass-border: hsla(0, 0%, 100%, 0.1);
+    --glow-primary: 0 0 40px hsla(340, 80%, 55%, 0.4);
+    --glow-accent: 0 0 30px hsla(45, 100%, 60%, 0.3);
+    --shadow-card: 0 10px 40px -10px hsla(0, 0%, 0%, 0.5);
+
+    --sidebar-background: 220 50% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 340 80% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 30% 22%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 30% 28%;
+    --sidebar-ring: 340 80% 55%;
+  }
+
+  .dark {
+    --background: 220 50% 6%;
+    --foreground: 0 0% 100%;
+    --card: 220 40% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 220 40% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 340 80% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 80% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 30% 18%;
+    --muted-foreground: 0 0% 75%;
+    --accent: 45 100% 60%;
+    --accent-foreground: 220 50% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 30% 22%;
+    --input: 220 30% 18%;
+    --ring: 340 80% 55%;
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 220 50% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 50% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 50% 15%;
+    --primary: 340 80% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 80% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 20% 92%;
+    --muted-foreground: 220 20% 40%;
+    --accent: 45 100% 50%;
+    --accent-foreground: 220 50% 10%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 85%;
+    --input: 220 20% 92%;
+    --ring: 340 80% 50%;
+
+    --glass: hsla(220, 40%, 0%, 0.06);
+    --glass-border: hsla(220, 30%, 0%, 0.1);
+    --glow-primary: 0 0 40px hsla(340, 80%, 55%, 0.2);
+    --glow-accent: 0 0 30px hsla(45, 100%, 60%, 0.2);
+    --shadow-card: 0 10px 40px -10px hsla(0, 0%, 0%, 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Poppins', system-ui, sans-serif;
+    background: var(--gradient-primary);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .gradient-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background: var(--gradient-accent);
+    color: hsl(var(--accent-foreground));
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-accent);
+  }
+
+  .btn-spin {
+    background: var(--gradient-spin);
+    color: hsl(var(--foreground));
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  .btn-spin:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: var(--glow-primary);
+  }
+
+  .btn-social {
+    background: var(--gradient-social);
+    color: hsl(var(--accent-foreground));
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-social:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  .btn-glass {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: hsl(var(--foreground));
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .btn-glass:hover {
+    background: hsla(0, 0%, 100%, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+/* Spin wheel animation */
+@keyframes spin-wheel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(var(--spin-degrees, 2160deg));
+  }
+}
+
+.wheel-spinning {
+  animation: spin-wheel 5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Pulse animation for coins */
+@keyframes coin-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.coin-earned {
+  animation: coin-pulse 0.5s ease-in-out;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsla(0, 0%, 100%, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}

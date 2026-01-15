@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Vite
+.vite/
+
+# Environment variables (VERY IMPORTANT)
+.env
+.env.local
+.env.development
+.env.production
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Firebase (agar purani files bach gayi ho)
+.firebase/
+firebase-debug.log
+
+# Supabase local
+.supabase/
+
+# PWA / cache
+*.log
